@@ -7,8 +7,6 @@
 //
 
 #import "ZLCustomCamera.h"
-#import <AVFoundation/AVFoundation.h>
-#import <CoreMotion/CoreMotion.h>
 #import "ZLPlayer.h"
 #import "ZLPhotoManager.h"
 #import "UIImage+ZLPhotoBrowser.h"
@@ -579,6 +577,11 @@
 
 - (void)handleDeviceMotion:(CMDeviceMotion *)deviceMotion
 {
+
+    if (self.cameraOrientation) {
+        self.orientation = self.cameraOrientation;
+        return;
+    }
     double x = deviceMotion.gravity.x;
     double y = deviceMotion.gravity.y;
     
