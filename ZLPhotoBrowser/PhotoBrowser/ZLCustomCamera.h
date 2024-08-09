@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "ZLDefine.h"
+#import <AVFoundation/AVFoundation.h>
+#import <CoreMotion/CoreMotion.h>
 
 @interface ZLCustomCamera : UIViewController
 
@@ -27,6 +29,9 @@
 
 //录制视频时候进度条颜色 默认 rgb(80, 169, 56)
 @property (nonatomic, strong) UIColor *circleProgressColor;
+
+//拍照陀螺仪方向 不设置则自动处理
+@property (nonatomic, assign) AVCaptureVideoOrientation cameraOrientation;
 
 /**
  确定回调，如果拍照则videoUrl为nil，如果视频则image为nil
